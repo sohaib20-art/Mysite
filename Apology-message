@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Sincere Apology</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #080808;
+    color: #fff;
+    font-family: Georgia, serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    padding: 25px;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(139, 35, 65, 0.18),
+            transparent 60%
+        );
+    z-index: -1;
+}
+
+.card {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    padding: 40px 25px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 22px;
+    background: rgba(255,255,255,0.025);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 60px rgba(130,20,50,0.08);
+    animation: appear 1.5s ease;
+}
+
+.heart {
+    font-size: 45px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+.label {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #d69aa8;
+    margin-bottom: 22px;
+}
+
+h1 {
+    font-size: clamp(32px, 8vw, 46px);
+    font-weight: normal;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+h1 span {
+    color: #d69aa8;
+    font-style: italic;
+}
+
+.subtitle {
+    color: #aaa;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 15px 27px;
+    background: #d69aa8;
+    border: none;
+    border-radius: 30px;
+    color: #171013;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(214,154,168,0.3);
+}
+
+#letter {
+    display: none;
+    text-align: left;
+    margin-top: 30px;
+    line-height: 1.9;
+    color: #d0d0d0;
+    font-size: 16px;
+    animation: appear 1s ease;
+}
+
+#letter p {
+    margin-bottom: 17px;
+}
+
+.signature {
+    color: #d69aa8;
+    font-style: italic;
+    margin-top: 25px;
+}
+
+.footer {
+    margin-top: 35px;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #666;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+.particle {
+    position: fixed;
+    bottom: -20px;
+    color: #d69aa8;
+    opacity: 0;
+    pointer-events: none;
+    animation: floatUp linear infinite;
+    z-index: -1;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(180deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<main class="card">
+
+    <div class="heart">♡</div>
+
+    <div class="label">A MESSAGE FROM THE HEART</div>
+
+    <h1>I'm truly <span>sorry.</span></h1>
+
+    <p class="subtitle">
+        Sometimes, words cannot fix everything,
+        but a sincere apology is a place to start.
+    </p>
+
+    <button id="openBtn" onclick="openLetter()">
+        Read My Message ♡
+    </button>
+
+    <div id="letter">
+
+        <p>Hey,</p>
+
+        <p>
+            I've been thinking about what happened,
+            and I want to sincerely apologize.
+            I know that my words or actions may have
+            hurt you, and I'm truly sorry for that.
+        </p>
+
+        <p>
+            I never wanted to make things difficult
+            between us. I understand that saying
+            "I'm sorry" doesn't automatically make
+            everything okay.
+        </p>
+
+        <p>
+            I'm not asking you to forget what happened
+            or to forgive me immediately. I just want
+            you to know that I recognize my mistake
+            and that I want to learn from it.
+        </p>
+
+        <p>
+            You deserve honesty, respect, and
+            understanding. I hope that, with time,
+            my actions can show you how sincere
+            these words really are.
+        </p>
+
+        <p>
+            Whatever you decide, I'll respect your
+            feelings and your space.
+        </p>
+
+        <p>
+            Thank you for taking the time to read this.
+        </p>
+
+        <p class="signature">
+            With sincere apologies. ♡
+        </p>
+
+    </div>
+
+    <div class="footer">
+        WRITTEN WITH SINCERITY
+    </div>
+
+</main>
+
+<script>
+function openLetter() {
+    const letter = document.getElementById("letter");
+    const button = document.getElementById("openBtn");
+
+    letter.style.display = "block";
+    button.style.display = "none";
+
+    letter.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+    });
+}
+
+for (let i = 0; i < 15; i++) {
+    const particle = document.createElement("div");
+
+    particle.className = "particle";
+    particle.textContent = "♡";
+
+    particle.style.left = Math.random() * 100 + "vw";
+    particle.style.animationDuration =
+        (8 + Math.random() * 12) + "s";
+
+    particle.style.animationDelay =
+        (Math.random() * 10) + "s";
+
+    particle.style.fontSize =
+        (12 + Math.random() * 15) + "px";
+
+    document.body.appendChild(particle);
+}
+</script>
+
+</body>
+</html>
